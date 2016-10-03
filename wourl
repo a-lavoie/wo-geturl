@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+'use strict'
+let Promise = require('bluebird');
+let request = require('request');
+let _ = require('lodash');
+let argv = require('minimist')(process.argv.slice(2));
+if (_.isUndefined(argv.if)){
+    console.log('Missing configuration');
+    process.exit(-1);
+}
+
+let fs = require('fs');
+let configFile = fs.readFileSync(argv.if, 'utf-8');
+let configuration = JSON.parse(configFile);
+
+let task = new Promise((resolve, reject)=>{
+        let req = request(configuration, (error, response, body)=>{
+                if (!error){
+    resolve(body);
+} else {
+    reject(error);
+}
+});
+});
+
+task.then((result)=>{
+    console.log('Success=', result);
+}).catch((error)=>{
+    console.log('Error=', error);
+})

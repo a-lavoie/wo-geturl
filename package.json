@@ -1,0 +1,26 @@
+{
+  "name": "wourl",
+  "version": "1.0.0",
+  "description": "GET/POST/PUT/DELETE/... url resource",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allavoie/wourl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allavoie/wourl/issues"
+  },
+  "homepage": "https://github.com/allavoie/wourl#readme",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "lodash": "^4.16.3",
+    "minimist": "^1.2.0",
+    "request": "^2.75.0",
+    "wocomponent": "github:allavoie/wocomponent"
+  }
+}
